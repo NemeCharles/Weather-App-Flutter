@@ -53,53 +53,48 @@ class HourlyForecast extends StatelessWidget {
     int timeInt = int.parse(time.substring(0,2));
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 5.0),
-      child: InkWell(
-        onTap: () {
-          print('${size.width}, ${size.height}');
-        },
-        child: Container(
-          height: 65,
-          width: 130,
-          decoration: BoxDecoration(
-              color: timeInt == currentHourInt ? null : Colors.grey.withOpacity(0.1),
-              gradient: timeInt == currentHourInt ? const LinearGradient(
-                  colors: [
-                    Color(0XFF1b7ae0),
-                    Color(0XFF2088e7)
-                  ]
-              ) : null,
-              borderRadius: BorderRadius.circular(15)
-          ),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 15),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Image.asset('images/${ClimateImage.hourlyClimateImage(code, timeInt)}_2d.png', height: 45,),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(time,
-                      style: const TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.w500
-                      ),
+      child: Container(
+        height: 65,
+        width: 130,
+        decoration: BoxDecoration(
+            color: timeInt == currentHourInt ? null : Colors.grey.withOpacity(0.1),
+            gradient: timeInt == currentHourInt ? const LinearGradient(
+                colors: [
+                  Color(0XFF1b7ae0),
+                  Color(0XFF2088e7)
+                ]
+            ) : null,
+            borderRadius: BorderRadius.circular(15)
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Image.asset('images/${ClimateImage.hourlyClimateImage(code, timeInt)}_2d.png', height: 45,),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(time,
+                    style: const TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500
                     ),
-                    const SizedBox(height: 7,),
-                    Row(
-                      children: [
-                        Text('${temp.toString()}°',
-                          style: const TextStyle(
-                              fontSize: 25,
-                              fontWeight: FontWeight.w500
-                          ),
+                  ),
+                  const SizedBox(height: 7,),
+                  Row(
+                    children: [
+                      Text('${temp.toString()}°',
+                        style: const TextStyle(
+                            fontSize: 25,
+                            fontWeight: FontWeight.w500
                         ),
-                      ],
-                    )
-                  ],
-                )
-              ],
-            ),
+                      ),
+                    ],
+                  )
+                ],
+              )
+            ],
           ),
         ),
       ),
